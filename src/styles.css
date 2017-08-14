@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background: #fff;
+  font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #707478;
+  font-size: 12px;
+}
+.ie8 body {
+  font-family: Arial,sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+  font-weight: 500;
+  color: #242a30;
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.25;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-size: 60%;
+  font-weight: 300;
+  color: #7c7f83;
+}
+a {
+  -webkit-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  transition: all .2s linear;
+}
+a:focus {
+  outline: none;
+}
+label {
+  color: #242a30;
+}
+p {
+  font-size: 12px;
+  line-height: 20px;
+}
+.row {
+  margin: 0 -15px;
+}
+.row > [class*="col-"] {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.contentAnimated {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.finishAnimated {
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+
+body.page-navbar-fixed-top {
+  padding-top: 70px;
+}
+body.page-navbar-fixed-top-sm {
+  padding-top: 51px;
+}
