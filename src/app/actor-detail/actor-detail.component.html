@@ -1,13 +1,100 @@
-<div *ngIf="actor" class="row">
-  <div class="col-xs-6">
-    <img class="img-responsive" src="{{getImagePath(actor.profile_path)}}">
-  </div>
-  <div class="col-xs-6">
-    <p>Nombre: {{actor.name}}</p>
-    <p>Popularity: {{actor.popularity}}</p>
-    <p>Popularity: {{actor.popularity}}</p>
-    <p>Popularity: {{actor.popularity}}</p>
-    <p>Popularity: {{actor.popularity}}</p>
-    <p>Popularity: {{actor.popularity}}</p>
+<style>
+  .personal{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-color: whitesmoke;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.18);
+  }
+  .biography{
+    font-size: 18px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+
+  .actor-detail{
+    margin-top: 90px;
+    margin-bottom: 20px
+  }
+
+  .title h2 {
+    text-align: center;
+  }
+
+  .actor-detail h4{
+    color: #333333;
+    font-weight: 500;
+  }
+
+  .profile img{
+    max-height: 450px;
+  }
+
+  .profile{
+    text-align: right;
+  }
+
+
+</style>
+
+<div *ngIf="actor" class="row actor-detail">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <div class="title">
+      <h2>{{actor.name}}</h2>
+    </div>
+    <hr>
+      <div class="col-md-4 col-sm-3 profile">
+        <img class="img-rounded img-responsive pull-right" src="{{getImagePath(actor.profile_path)}}">
+      </div>
+      <div class="col-md-6 col-sm-7">
+        <div *ngIf="actor.biography" class="biography">
+          {{actor.biography}}
+        </div>
+        <br>
+        <h4>Personal information</h4>
+        <div class="personal">
+          <p>
+            <b>Gender:</b> {{getGenderString(actor.gender)}}
+          </p>
+          <p *ngIf="actor.birthdate">
+            <b>Birthday:</b> {{actor.birthday}}
+          </p>
+          <p *ngIf="actor.deathday">
+            <b>Death day:</b> {{actor.deathday}}
+          </p>
+          <p><b>Place of birth:</b> {{actor.place_of_birth}}</p>
+          <p><b>Popularity:</b> {{actor.popularity}}</p>
+        </div>
+      </div>
   </div>
 </div>
+
+<!--
+  <div class="col-xs-1"></div>
+
+    <div class="row">
+      <div class="col-xs-4" style="background-color: beige; text-align: right; padding: 5px">
+
+      </div>
+      <div class="col-xs-6" style="background-color: beige; padding: 5px;">
+        <p>Birthday: {{actor.birthday}}</p>
+        <p>Gender: {{getGenderString(actor.gender)}}</p>
+        <p>Popularity: {{actor.popularity}}</p>
+        <p>
+          Homepage: {{actor.homepage}}<span *ngIf="!actor.homepage">N/A</span>
+        </p>
+      </div>
+    </div>
+    <div *ngIf="actor.biography" class="row">
+      <div class="col-xs-10">
+        <p>{{actor.biography}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+-->

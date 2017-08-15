@@ -26,4 +26,12 @@ export class ActorDetailComponent implements OnInit {
     return 'https://image.tmdb.org/t/p/w500' + path;
   }
 
+  getGenderString(gender: number): string {
+    if (gender === 1) {
+      return 'Female';
+    } else {
+      return 'Male';
+    }
+  }
+
 }
