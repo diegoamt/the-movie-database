@@ -8,10 +8,12 @@ import {HeaderComponent} from './header/header.component';
 import {ActorsComponent} from './actors/actors.component';
 import {MoviesComponent} from './movies/movies.component';
 import {ActorDetailComponent} from './actor-detail/actor-detail.component';
+import {MovieDetailComponent} from './movie-detail/movie-detail.component';
 
 import {ActorsService} from './actors/actors.service';
 import {MoviesService} from './movies/movies.service';
 import {ActorDetailService} from './actor-detail/actor-detail.service';
+import {MovieDetailService} from './movie-detail/movie-detail.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {ActorDetailService} from './actor-detail/actor-detail.service';
     HeaderComponent,
     ActorsComponent,
     MoviesComponent,
-    ActorDetailComponent
+    ActorDetailComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,7 @@ import {ActorDetailService} from './actor-detail/actor-detail.service';
     RoutingModule
   ],
   providers: [
-    ActorsService, MoviesService, ActorDetailService],
+    ActorsService, MoviesService, ActorDetailService, MovieDetailService],
   bootstrap: [AppComponent]
 })
 
