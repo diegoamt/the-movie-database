@@ -1,14 +1,16 @@
-<div *ngFor="let actor of actors|async">
-  <div class="col-xs-3">
-    <div class="row">
-      <div class="col-xs-6">
-        <img class="img-responsive" src="{{getImagePath(actor.profile_path)}}">
-      </div>
-      <div class="col-xs-6">
-        <h4>Información</h4>
-        <strong>Nombre: </strong> {{ actor.name }}<br>
-        <strong>Popularidad:</strong> {{ actor.popularity }}
-        <a routerLink="actor-detail/{{ actor.id }}">Ver detalles</a>
+<div class="container">
+  <div *ngFor="let actor of actors|async">
+    <div class="col-xs-3">
+      <div class="row">
+        <div class="col-xs-6">
+          <img class="img-responsive" src="{{getImagePath(actor.profile_path)}}">
+        </div>
+        <div class="col-xs-6">
+          <h4>Información</h4>
+          <strong>Nombre: </strong> {{ actor.name }}<br>
+          <strong>Popularidad:</strong> {{ actor.popularity }}
+          <a routerLink="actor-detail/{{ actor.id }}">Ver detalles</a>
+        </div>
       </div>
     </div>
   </div>
