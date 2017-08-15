@@ -1,7 +1,20 @@
-<div class="container">
-  <div class="row">
-    <input (keyup)="searchActors($event)" class="form-control" placeholder="Search actor by name...">
+<div id="quote" class="content bg-white has-bg" data-scrollview="true" style="margin-top: 70px">
+  <div class="content-bg">
+    <img src="assets/img/quote-bg.jpg" alt="Quote" />
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 quote">
+        Popular Actors
+      </div>
+      <div class="col-md-12" style="margin-top: 20px">
+        <input (keyup)="searchActors($event)" class="form-control" placeholder="Search actor by name...">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div *ngFor="let actor of actors|async">
     <div class="col-xs-3">
       <div class="row">
