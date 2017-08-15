@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="row">
+    <input (keyup)="searchActors($event)" class="form-control" placeholder="Search actor by name...">
+  </div>
   <div *ngFor="let actor of actors|async">
     <div class="col-xs-3">
       <div class="row">

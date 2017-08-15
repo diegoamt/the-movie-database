@@ -22,4 +22,12 @@ export class MoviesComponent implements OnInit {
     return 'https://image.tmdb.org/t/p/w500' + path;
   }
 
+  searchMovies($event) {
+    const query = $event.target.value;
+    if (query !== '') {
+      this.movies = this.moviesService.searchMovies($event.target.value);
+    } else {
+      this.movies = this.moviesService.getMovies();
+    }
+  }
 }

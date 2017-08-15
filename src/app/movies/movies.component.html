@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="row">
+    <input (keyup)="searchMovies($event)" class="form-control" placeholder="Search movie by title...">
+  </div>
   <div *ngFor="let movie of movies|async">
     <div class="col-xs-3">
       <div class="row">

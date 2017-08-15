@@ -20,4 +20,12 @@ export class ActorsComponent implements OnInit {
     return 'https://image.tmdb.org/t/p/w500' + path;
   }
 
+  searchActors($event) {
+    const query = $event.target.value;
+    if (query !== ''){
+      this.actors = this.actorsService.searchActors(query);
+    } else {
+      this.actors = this.actorsService.getActors();
+    }
+  }
 }
