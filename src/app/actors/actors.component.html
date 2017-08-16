@@ -1,4 +1,4 @@
-<div id="quote" class="content bg-white has-bg" data-scrollview="true" style="margin-top: 70px">
+<div id="quote" class="content bg-white has-bg" style="margin-top: 70px">
   <div class="content-bg">
     <img src="assets/img/quote-bg.jpg" alt="Quote" />
   </div>
@@ -14,20 +14,20 @@
   </div>
 </div>
 
+<br>
+
 <div class="container">
-  <div *ngFor="let actor of actors|async">
-    <div class="col-xs-3">
+  <div class="col-md-3 col-sm-4 col-xs-5 item" *ngFor="let actor of actors|async; let i = index">
+    <a routerLink="/actors/actor-detail/{{actor.id}}">
       <div class="row">
         <div class="col-xs-6">
-          <img class="img-responsive" src="{{getImagePath(actor.profile_path)}}">
+          <img class="img-rounded img-responsive" src="{{getImagePath(actor.profile_path)}}">
         </div>
         <div class="col-xs-6">
-          <h4>Información</h4>
-          <strong>Nombre: </strong> {{ actor.name }}<br>
-          <strong>Popularidad:</strong> {{ actor.popularity }}
-          <a routerLink="actor-detail/{{ actor.id }}">Ver detalles</a>
+          <h5><b>{{actor.name}}</b></h5>
+          <small>{{actor.popularity}}</small> <i class="fa fa-thumbs-o-up"></i>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
