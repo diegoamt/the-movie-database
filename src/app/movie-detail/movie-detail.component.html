@@ -19,7 +19,7 @@
           <p><b>Genres:</b> <span *ngFor="let item of movie.genres">{{item.name}}, </span></p>
           <p *ngIf="movie.original_title"><b>Original title:</b> {{movie.original_title}}</p>
           <p *ngIf="movie.status"><b>Status:</b> {{movie.status}}</p>
-          <p *ngIf="movie.release_date"><b>Release date:</b> {{movie.release_date}}</p>
+          <p *ngIf="movie.release_date"><b>Release date:</b> {{movie.release_date|date}}</p>
           <p *ngIf="movie.tagline"><b>Tagline:</b> {{movie.tagline}}</p>
           <p *ngIf="movie.vote_count"><b>Vote count:</b> {{movie.vote_count}}</p>
           <p *ngIf="movie.popularity"><b>Popularity:</b> {{movie.popularity}}</p>

@@ -24,7 +24,7 @@ import {FooterComponent} from './footer/footer.component';
     MoviesComponent,
     ActorDetailComponent,
     MovieDetailComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

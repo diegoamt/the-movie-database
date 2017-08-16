@@ -8,6 +8,7 @@ import { ActorsService } from './actors.service';
   templateUrl: './actors.component.html',
   styleUrls: ['./actors.component.css']
 })
+
 export class ActorsComponent implements OnInit {
   actors: Observable<any>;
   constructor(private actorsService: ActorsService) {}

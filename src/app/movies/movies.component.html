@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 quote">
-        Popular Movies
+        Movies
       </div>
       <div class="col-md-12" style="margin-top: 20px">
         <input (keyup)="searchMovies($event)" class="form-control" placeholder="Search movie by name...">
@@ -15,17 +15,29 @@
 </div>
 
 <div class="container">
-  <div *ngFor="let movie of movies|async">
-    <div class="col-xs-3">
-      <div class="row">
-        <div class="col-xs-6">
-          <a routerLink="movie-detail/{{movie.id}}">
-            <img class="img-responsive" src="{{getImagePath(movie.poster_path)}}">
-          </a>
-        </div>
-        <div class="col-xs-6">
-          <h4><a routerLink="movie-detail/{{movie.id}}">{{movie.title}}</a></h4>
-          <strong>Vote average:</strong> {{ movie.vote_average }}
+  <div id="trending-items" class="section-container">
+    <div class="container">
+      <h4 class="section-title clearfix">
+        <a href="" class="pull-right" style="margin-left: 5px;">Upcomming</a>
+        <a href="" class="pull-right" style="margin-left: 5px;">Lastest</a>
+        <a href="" class="pull-right" style="margin-left: 5px;">Top rated</a>
+        <a href="" class="pull-right">Popular</a>
+        Popular movies
+      </h4>
+
+      <div class="row row-space-10">
+        <div class="col-md-2 col-sm-4" *ngFor="let movie of movies|async">
+          <div class="item item-thumbnail">
+            <a routerLink="movie-detail/{{movie.id}}" class="item-image">
+              <img src="{{getImagePath(movie.poster_path)}}" alt="{{movie.title}}" />
+              <div class="discount">{{movie.vote_average}} <i class="fa fa-star"></i></div>
+            </a>
+            <div class="item-info">
+              <h4 class="item-title">
+                <a routerLink="movie-detail/{{movie.id}}">{{movie.title}}</a>
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>

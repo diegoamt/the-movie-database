@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 quote">
-        Popular Actors
+        Actors
       </div>
       <div class="col-md-12" style="margin-top: 20px">
         <input (keyup)="searchActors($event)" class="form-control" placeholder="Search actor by name...">
@@ -14,20 +14,29 @@
   </div>
 </div>
 
-<br>
-
 <div class="container">
-  <div class="col-md-3 col-sm-4 col-xs-5 item" *ngFor="let actor of actors|async; let i = index">
-    <a routerLink="/actors/actor-detail/{{actor.id}}">
-      <div class="row">
-        <div class="col-xs-6">
-          <img class="img-rounded img-responsive" src="{{getImagePath(actor.profile_path)}}">
-        </div>
-        <div class="col-xs-6">
-          <h5><b>{{actor.name}}</b></h5>
-          <small>{{actor.popularity}}</small> <i class="fa fa-thumbs-o-up"></i>
+  <div id="trending-items" class="section-container">
+    <div class="container">
+      <h4 class="section-title clearfix">
+        <a href="" class="pull-right" style="margin-left: 5px;">Lastest</a>
+        <a href="" class="pull-right">Popular</a>
+        Popular actors
+      </h4>
+
+      <div class="row row-space-10">
+        <div class="col-md-2 col-sm-4" *ngFor="let actor of actors|async">
+          <div class="item item-thumbnail">
+            <a routerLink="/actors/actor-detail/{{actor.id}}" class="item-image">
+              <img src="{{getImagePath(actor.profile_path)}}" alt="{{actor.name}}" />
+            </a>
+            <div class="item-info">
+              <h4 class="item-title">
+                <a routerLink="/actors/actor-detail/{{actor.id}}">{{actor.name}}</a>
+              </h4>
+            </div>
+          </div>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 </div>
