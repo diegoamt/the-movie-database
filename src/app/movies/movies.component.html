@@ -18,11 +18,11 @@
   <div id="trending-items" class="section-container">
     <div class="container">
       <h4 class="section-title clearfix">
-        <a href="" class="pull-right" style="margin-left: 5px;">Upcoming</a>
-        <a href="" class="pull-right" style="margin-left: 5px;">Lastest</a>
-        <a href="" class="pull-right" style="margin-left: 5px;">Top rated</a>
-        <a href="" class="pull-right">Popular</a>
-        Popular movies
+        <a (click)="getNoePlaying()" class="pull-right" style="margin-left: 5px;">Now playing</a>
+        <a (click)="getUpcoming()" class="pull-right" style="margin-left: 5px;">Upcoming</a>
+        <a (click)="getTopRated()" class="pull-right" style="margin-left: 5px;">Top rated</a>
+        <a (click)="getPopular()" class="pull-right">Popular</a>
+        {{current}} movies
       </h4>
 
       <div class="row row-space-10">

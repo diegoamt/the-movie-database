@@ -11,6 +11,7 @@ import { MoviesService } from './movies.service';
 
 export class MoviesComponent implements OnInit {
   movies: Observable<any>;
+  current = 'Popular';
 
   constructor(private moviesService: MoviesService) { }
 
@@ -33,5 +34,25 @@ export class MoviesComponent implements OnInit {
     } else {
       this.movies = this.moviesService.getMovies();
     }
+  }
+
+  getPopular() {
+    this.movies = this.moviesService.getPopular();
+    this.current = 'Popular';
+  }
+
+  getTopRated() {
+    this.movies = this.moviesService.getTopRated();
+    this.current = 'Top rated';
+  }
+
+  getNoePlaying() {
+    this.movies = this.moviesService.getNowPlaying();
+    this.current = 'Now playing';
+  }
+
+  getUpcoming() {
+    this.movies = this.moviesService.getUpcoming();
+    this.current = 'Upcoming';
   }
 }

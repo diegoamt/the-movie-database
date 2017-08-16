@@ -33,4 +33,5 @@ export class ActorsComponent implements OnInit {
       this.actors = this.actorsService.getActors();
     }
   }
+
 }

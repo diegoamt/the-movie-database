@@ -23,6 +23,38 @@ export class MoviesService {
     return Observable.throw(error.statusText);
   }
 
+  getPopular() {
+    return this.http.get('https://api.themoviedb.org/3/movie/popular?api_key=d1ccda07fd874dc9393ac5829e89c12e&page=1')
+      .map(response => {
+        return response.json().results;
+      })
+      .catch(this.handleError);
+  }
+
+  getTopRated() {
+    return this.http.get('https://api.themoviedb.org/3/movie/top_rated?api_key=d1ccda07fd874dc9393ac5829e89c12e&page=1')
+      .map(response => {
+        return response.json().results;
+      })
+      .catch(this.handleError);
+  }
+
+  getUpcoming() {
+    return this.http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=d1ccda07fd874dc9393ac5829e89c12e&page=1')
+      .map(response => {
+        return response.json().results;
+      })
+      .catch(this.handleError);
+  }
+
+  getNowPlaying() {
+    return this.http.get('https://api.themoviedb.org/3/movie/now_playing?api_key=d1ccda07fd874dc9393ac5829e89c12e&page=1')
+      .map(response => {
+        return response.json().results;
+      })
+      .catch(this.handleError);
+  }
+
   searchMovies(query: string): Observable<any> {
     return this.http.get(this.searchcUrl + query)
       .map(response => {
