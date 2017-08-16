@@ -29,15 +29,36 @@
     <div class="row">
       <br>
       <hr>
-      <h4>Known For ...</h4>
+      <h4>Known For:</h4>
+      <h6>Cast movies order by release date...</h6>
       <ul class="movies_list">
-        <li *ngFor="let movie of cast_movies|async">
+        <li *ngFor="let movie of cast_movies|async|order">
           <div class="image">
             <a routerLink="/movies/movie-detail/{{movie.id}}">
               <img class="movie-img" src="{{getImagePath(movie.poster_path)}}" alt="Terminator Génesis" width="150px">
             </a>
           </div>
-          <p><a routerLink="/movies/movie-detail/{{movie.id}}" class="title">{{movie.title}}</a></p>
+          <p>
+            <a routerLink="/movies/movie-detail/{{movie.id}}" class="title">{{movie.title}}</a>
+            <br>
+            <small>{{movie.release_date|date}}</small>
+          </p>
+        </li>
+      </ul>
+      <br>
+      <h6>Crew movies order by release date...</h6>
+      <ul class="movies_list">
+        <li *ngFor="let movie of crew_movies|async|order">
+          <div class="image">
+            <a routerLink="/movies/movie-detail/{{movie.id}}">
+              <img class="movie-img" src="{{getImagePath(movie.poster_path)}}" alt="Terminator Génesis" width="150px">
+            </a>
+          </div>
+          <p>
+            <a routerLink="/movies/movie-detail/{{movie.id}}" class="title">{{movie.title}}</a>
+            <br>
+            <small>{{movie.release_date|date}}</small>
+          </p>
         </li>
       </ul>
     </div>

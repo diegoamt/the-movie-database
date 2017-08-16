@@ -15,6 +15,7 @@ import {MoviesComponent} from './movies/movies.component';
 import {ActorDetailComponent} from './actor-detail/actor-detail.component';
 import {MovieDetailComponent} from './movie-detail/movie-detail.component';
 import {FooterComponent} from './footer/footer.component';
+import { OrderPipe } from './order.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {FooterComponent} from './footer/footer.component';
     ActorDetailComponent,
     MovieDetailComponent,
     FooterComponent,
+    OrderPipe,
   ],
   imports: [
     BrowserModule,
