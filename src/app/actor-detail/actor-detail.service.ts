@@ -19,6 +19,24 @@ export class ActorDetailService {
       .catch(this.handleError);
   }
 
+  getCastMovies(id: number): Observable<any> {
+    const url = this.url + id + '/movie_credits?api_key=d1ccda07fd874dc9393ac5829e89c12e';
+    return this.http.get(url)
+      .map(response => {
+        return response.json().cast;
+      })
+      .catch(this.handleError);
+  }
+
+  getCrewMovies(id: number): Observable<any> {
+    const url = this.url + id + '/movie_credits?api_key=d1ccda07fd874dc9393ac5829e89c12e';
+    return this.http.get(url)
+      .map(response => {
+        return response.json().crew;
+      })
+      .catch(this.handleError);
+  }
+
   private handleError(error: Response) {
     return Observable.throw(error.statusText);
   }

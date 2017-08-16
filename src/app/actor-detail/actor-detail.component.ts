@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ActorDetailService} from './actor-detail.service';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-actor-detail',
@@ -9,7 +10,9 @@ import {ActorDetailService} from './actor-detail.service';
 })
 
 export class ActorDetailComponent implements OnInit {
-  actor: any = {};
+  actor: any;
+  cast_movies: Observable<any>;
+  crew_movies: Observable<any>;
 
   constructor(private route: ActivatedRoute, private actorDetailService: ActorDetailService) {}
 
@@ -19,11 +22,17 @@ export class ActorDetailComponent implements OnInit {
       this.actor = this.actorDetailService.getActor(id).subscribe(response => {
         this.actor = response;
       });
+      this.cast_movies = this.actorDetailService.getCastMovies(id);
+      this.crew_movies = this.actorDetailService.getCrewMovies(id);
     });
   }
 
   getImagePath(path: string): string {
-    return 'https://image.tmdb.org/t/p/w500' + path;
+    if (typeof path === 'undefined' || path === null) {
+      return '../../assets/img/no-img.jpg';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500' + path;
+    }
   }
 
   getGenderString(gender: number): string {

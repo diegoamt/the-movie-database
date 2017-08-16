@@ -17,12 +17,16 @@ export class ActorsComponent implements OnInit {
   }
 
   getImagePath(path: string): string {
-    return 'https://image.tmdb.org/t/p/w500' + path;
+    if (typeof path === 'undefined' || path === null) {
+      return '../../assets/img/no-img.jpg';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500' + path;
+    }
   }
 
   searchActors($event) {
     const query = $event.target.value;
-    if (query !== ''){
+    if (query !== '') {
       this.actors = this.actorsService.searchActors(query);
     } else {
       this.actors = this.actorsService.getActors();

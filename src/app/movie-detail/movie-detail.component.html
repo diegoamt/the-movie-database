@@ -1,13 +1,32 @@
-<div *ngIf="movie" class="row">
-  <div class="col-xs-6">
-    <img class="img-responsive" src="{{getImagePath(movie.poster_path)}}">
-  </div>
-  <div class="col-xs-6">
-    <p>Nombre: {{movie.title}}</p>
-    <p>Nombre: {{movie.title}}</p>
-    <p>Nombre: {{movie.title}}</p>
-    <p>Nombre: {{movie.title}}</p>
-    <p>Nombre: {{movie.title}}</p>
-    <p>Nombre: {{movie.title}}</p>
+<div class="row detail">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <div class="row">
+      <div class="title">
+        <h2>{{movie.title}} <small>{{movie.vote_average}} <i class="fa fa-star"></i></small></h2>
+      </div>
+      <hr>
+      <div class="col-sm-4 profile">
+        <img class="img-rounded img-responsive pull-right" src="{{getImagePath(movie.poster_path)}}">
+      </div>
+      <div class="col-sm-8">
+        <div class="biography">
+          {{movie.overview}}
+          <span *ngIf="!movie.overview">No overview found for {{movie.title}}</span>
+        </div>
+        <br>
+        <div class="personal">
+          <p><b>Genres:</b> <span *ngFor="let item of movie.genres">{{item.name}}, </span></p>
+          <p *ngIf="movie.original_title"><b>Original title:</b> {{movie.original_title}}</p>
+          <p *ngIf="movie.status"><b>Status:</b> {{movie.status}}</p>
+          <p *ngIf="movie.release_date"><b>Release date:</b> {{movie.release_date}}</p>
+          <p *ngIf="movie.tagline"><b>Tagline:</b> {{movie.tagline}}</p>
+          <p *ngIf="movie.vote_count"><b>Vote count:</b> {{movie.vote_count}}</p>
+          <p *ngIf="movie.popularity"><b>Popularity:</b> {{movie.popularity}}</p>
+          <p *ngIf="movie.original_language"><b>Original language:</b> {{movie.original_language}}</p>
+          <p *ngIf="movie.homepage"><b>Home page:</b> <a href="{{movie.homepage}}">{{movie.homepage}}</a></p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

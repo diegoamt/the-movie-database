@@ -23,6 +23,10 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getImagePath(path: string): string {
-    return 'https://image.tmdb.org/t/p/w500' + path;
+    if (typeof path === 'undefined' || path === null) {
+      return '../../assets/img/no-img.jpg';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500' + path;
+    }
   }
 }
