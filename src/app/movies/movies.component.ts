@@ -15,18 +15,30 @@ export class MoviesComponent implements OnInit {
 
   constructor(private moviesService: MoviesService) { }
 
+  /**
+   * Initialize component and movies
+   */
   ngOnInit() {
     this.movies = this.moviesService.getMovies();
   }
 
+  /**
+   * Get full path of movie image from TMDB API
+   * @param {string} path
+   * @returns {string}
+   */
   getImagePath(path: string): string {
     if (typeof path === 'undefined' || path === null) {
-      return '../../assets/img/no-img.jpg';
+      return 'assets/img/no-img.jpg';
     } else {
       return 'https://image.tmdb.org/t/p/w500' + path;
     }
   }
 
+  /**
+   * Search movie by title
+   * @param $event
+   */
   searchMovies($event) {
     const query = $event.target.value;
     if (query !== '') {

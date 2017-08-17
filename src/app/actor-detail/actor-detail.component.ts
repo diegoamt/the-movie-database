@@ -16,6 +16,9 @@ export class ActorDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private actorDetailService: ActorDetailService) {}
 
+  /**
+   * Initialize component with actor information and your movies
+   */
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
@@ -27,14 +30,24 @@ export class ActorDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * Get full path of image from TMDB API
+   * @param {string} path
+   * @returns {string}
+   */
   getImagePath(path: string): string {
     if (typeof path === 'undefined' || path === null) {
-      return '../../assets/img/no-img.jpg';
+      return 'assets/img/no-img.jpg';
     } else {
       return 'https://image.tmdb.org/t/p/w500' + path;
     }
   }
 
+  /**
+   * Given the gender id, return Male or Female
+   * @param {number} gender
+   * @returns {string}
+   */
   getGenderString(gender: number): string {
     if (gender === 1) {
       return 'Female';
@@ -42,5 +55,4 @@ export class ActorDetailComponent implements OnInit {
       return 'Male';
     }
   }
-
 }

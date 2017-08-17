@@ -10,6 +10,11 @@ export class MovieDetailService {
 
   constructor(private http: Http) { }
 
+  /**
+   * Get movie information from TMDB API
+   * @param {number} id
+   * @returns {Observable<any>}
+   */
   getMovie(id: number): Observable<any> {
     const url = this.url + id + '?api_key=d1ccda07fd874dc9393ac5829e89c12e';
     return this.http.get(url)

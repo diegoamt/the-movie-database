@@ -13,6 +13,9 @@ export class MovieDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private movieDetailService: MovieDetailService) {}
 
+  /**
+   * Initialize component and movie information
+   */
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       const id = params['id'];
@@ -22,9 +25,14 @@ export class MovieDetailComponent implements OnInit {
     });
   }
 
+  /**
+   * Get full path of movie image
+   * @param {string} path
+   * @returns {string}
+   */
   getImagePath(path: string): string {
     if (typeof path === 'undefined' || path === null) {
-      return '../../assets/img/no-img.jpg';
+      return 'assets/img/no-img.jpg';
     } else {
       return 'https://image.tmdb.org/t/p/w500' + path;
     }

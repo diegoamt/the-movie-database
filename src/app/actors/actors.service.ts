@@ -11,6 +11,10 @@ export class ActorsService {
 
   constructor(private http: Http) {}
 
+  /**
+   * Get actors from TMDB API
+   * @returns {Observable<any>}
+   */
   getActors(): Observable<any> {
     return this.http.get(this.url)
       .map(response => {
@@ -19,6 +23,11 @@ export class ActorsService {
       .catch(this.handleError);
   }
 
+  /**
+   * Search actor by your name
+   * @param {string} query
+   * @returns {Observable<any>}
+   */
   searchActors(query: string): Observable<any> {
     return this.http.get(this.searchcUrl + query)
       .map(response => {

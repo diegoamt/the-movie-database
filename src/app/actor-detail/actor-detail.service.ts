@@ -10,6 +10,11 @@ export class ActorDetailService {
 
   constructor(private http: Http) { }
 
+  /**
+   * Get actor information from TMDB API
+   * @param {number} id
+   * @returns {Observable<any>}
+   */
   getActor(id: number): Observable<any> {
     const url = this.url + id + '?api_key=d1ccda07fd874dc9393ac5829e89c12e';
     return this.http.get(url)
@@ -19,6 +24,11 @@ export class ActorDetailService {
       .catch(this.handleError);
   }
 
+  /**
+   * Get the cast movies of the actor
+   * @param {number} id
+   * @returns {Observable<any>}
+   */
   getCastMovies(id: number): Observable<any> {
     const url = this.url + id + '/movie_credits?api_key=d1ccda07fd874dc9393ac5829e89c12e';
     return this.http.get(url)
@@ -28,6 +38,11 @@ export class ActorDetailService {
       .catch(this.handleError);
   }
 
+  /**
+   * Get the crew movies of the actor
+   * @param {number} id
+   * @returns {Observable<any>}
+   */
   getCrewMovies(id: number): Observable<any> {
     const url = this.url + id + '/movie_credits?api_key=d1ccda07fd874dc9393ac5829e89c12e';
     return this.http.get(url)
